@@ -18,22 +18,49 @@ export class HomeService {
 
   constructor(private http: HttpClient) { }
 
+  private weatherBaseUrl = 'http://localhost/aol/weather.php';
 
-  getWeather(): Observable<Weather[]>{
+  getWeather(): Observable<any>{
 
-    return this.http.get<Weather[]>(this.getWeatherUrl()).pipe(
-      tap(weather => console.log(weather)),
+    return this.http.get<any>(this.getWeatherUrl())
+    .pipe(
+      tap((weather) =>{
+        console.log(weather || 'not working')
+     
+      } ,
+      catchError(this.handleError('getWeather', []))
+      
+    )
+    );
+
+
+  }
+
+  getWeatherDetails(): Observable<any>{
+
+    return this.http.get(this.getWeatherDetailUrl()).pipe(
+      tap(weatherDetail => weatherDetail),
       catchError(this.handleError('getWeather', []))
     );
+
   }
-    public weatherUrl: string
+    public weatherUrl: string;
+    public weatherDetailUrl: string;
     
   setWeatherUrl(weatherUrl: string): void{
       this.weatherUrl = weatherUrl;
   }
 
+  setWeatherDetailUrl(weatherDetailUrl: string): void{
+    this.weatherDetailUrl = weatherDetailUrl;
+}
+
   getWeatherUrl(): string{
     return this.weatherUrl;
+  }
+
+  getWeatherDetailUrl(): string{
+    return this.weatherDetailUrl;
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

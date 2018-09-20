@@ -1,4 +1,4 @@
-export class Weather{
+export interface Weather{
 
     title: String;
     location_type: String;
