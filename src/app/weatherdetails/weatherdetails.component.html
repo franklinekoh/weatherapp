@@ -1,0 +1,19 @@
+
+
+<h3>Weather Details for {{data?.title}}</h3>
+
+<div class="grid grid-pad">
+  <a  class="col-1-4" *ngFor="let daily of data?.consolidated_weather">
+    <div class="module hero">
+
+      <h2><img src="{{metaWeatherUrlBaseUrl+daily?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+      <h4>City :{{data?.title}}</h4>
+      <h5 >Day : {{daily?.applicable_date | date :'EEEE'}} </h5>
+      <h5>Temperature: {{daily?.the_temp}} Celcuis</h5>
+        <h5>Max Temperature: {{daily?.max_temp}} Celcuis</h5>
+        <h5>Min Temperature: {{daily?.min_temp}} Celcuis</h5>
+    </div>
+  </a>
+  </div>
+
+  <button (click)="goBack()" style="float: left;">go back</button>

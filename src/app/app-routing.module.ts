@@ -2,11 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './home/home.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherdetailsComponent } from './weatherdetails/weatherdetails.component';
+import { WeathersearchComponent } from './weathersearch/weathersearch.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
- 
+  { path: '', component: WeatherComponent},
+  { path: 'weather/:woeid', component: WeatherdetailsComponent},
+  { path: 'search/:keyword', component: WeathersearchComponent},
 ];
 
 @NgModule({

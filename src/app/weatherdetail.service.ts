@@ -6,15 +6,9 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-
-
-export class HomeService {
-
-  
+export class WeatherdetailService {
 
   constructor(private http: HttpClient) { }
-
-
 
   getWeatherDetails(weatherDetailUrl: string): Observable<any>{
 
@@ -24,7 +18,6 @@ export class HomeService {
     );
 
   }
-  
 
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
@@ -38,5 +31,4 @@ export class HomeService {
       return of(result as T);
     };
   }
-
 }

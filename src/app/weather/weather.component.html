@@ -1,0 +1,86 @@
+<h3>Weathers</h3>
+
+<div>
+  <label>Search city:
+    <input id="search-box" #keyword />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="search(keyword.value); keyword.value=''">
+    Search 
+  </button>
+</div>
+<div class="grid grid-pad">
+  <a  class="col-1-4" routerLink="/weather/{{instanbul?.woeid}}">
+    <div class="module hero">
+
+      <h2><img src="{{metaWeatherUrlBaseUrl+instanbul?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+      <h4>City :{{instanbul?.title}}</h4>
+      <h5>Temperature: {{instanbul?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+        <h5>Max Temperature: {{instanbul?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+        <h5>Min Temperature: {{instanbul?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+    </div>
+  </a>
+
+  <a  class="col-1-4" routerLink="/weather/{{berlin?.woeid}}">
+      <div class="module hero">
+  
+        <h2><img src="{{metaWeatherUrlBaseUrl+berlin?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+        <h4>City :{{berlin?.title}}</h4>
+        <h5>Temperature: {{berlin?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+          <h5>Max Temperature: {{berlin?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+          <h5>Min Temperature: {{berlin?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+      </div>
+    </a>
+
+    <a  class="col-1-4" routerLink="/weather/{{london?.woeid}}">
+        <div class="module hero">
+    
+          <h2><img src="{{metaWeatherUrlBaseUrl+london?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+          <h4>City :{{london?.title}}</h4>
+          <h5>Temperature: {{london?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+            <h5>Max Temperature: {{london?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+            <h5>Min Temperature: {{london?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+        </div>
+      </a>
+
+      <a  class="col-1-4" routerLink="/weather/{{helsinki?.woeid}}">
+          <div class="module hero">
+      
+            <h2><img src="{{metaWeatherUrlBaseUrl+helsinki?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+            <h4>City :{{helsinki?.title}}</h4>
+            <h5>Temperature: {{helsinki?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+              <h5>Max Temperature: {{helsinki?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+              <h5>Min Temperature: {{helsinki?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+          </div>
+        </a>
+
+        <a  class="col-1-4" routerLink="/weather/{{dublin?.woeid}}">
+            <div class="module hero">
+        
+              <h2><img src="{{metaWeatherUrlBaseUrl+dublin?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+              <h4>City :{{dublin?.title}}</h4>
+              <h5>Temperature: {{dublin?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+                <h5>Max Temperature: {{dublin?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+                <h5>Min Temperature: {{dublin?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+            </div>
+          </a>
+
+          <a  class="col-1-4" routerLink="/weather/{{vancouver?.woeid}}">
+              <div class="module hero">
+          
+                <h2><img src="{{metaWeatherUrlBaseUrl+vancouver?.consolidated_weather[0]?.weather_state_abbr+'.svg'}}" height="50" width="60"></h2>
+                <h4>City :{{vancouver?.title}}</h4>
+                <h5>Temperature: {{vancouver?.consolidated_weather[0]?.the_temp}} Celcuis</h5>
+                  <h5>Max Temperature: {{vancouver?.consolidated_weather[0]?.max_temp}} Celcuis</h5>
+                  <h5>Min Temperature: {{vancouver?.consolidated_weather[0]?.min_temp}} Celcuis</h5>
+              </div>
+            </a>
+</div>
+
+<div>
+  <p *ngFor="let weather of weathers">
+    {{weather}}
+  </p>
+</div>
+
+

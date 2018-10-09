@@ -5,3 +5,4 @@ export interface Weather{
     woeid: number;
     latt_long: string;
 }
+
