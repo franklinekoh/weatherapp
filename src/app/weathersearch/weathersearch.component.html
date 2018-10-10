@@ -1,1 +1,13 @@
-<h3>Search result for</h3>
+<h3>Search result for {{keywordUrl}}</h3>
+
+<div>
+    <label>Search city:
+      <input id="search-box"  #keyword />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="search(keyword.value); keyword.value=''" >
+      Search 
+    </button>
+  </div>
+
+  <app-weatherdetails [keyword] = "keywordUrl"></app-weatherdetails>
